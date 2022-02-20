@@ -149,6 +149,7 @@ g <-ggplot(df5, aes(bigram, n)) +
   xlab(NULL) +
   theme_bw() +
   coord_flip()
+g
 
 
 # 7. 네트워크 연결망 시각화
@@ -162,7 +163,7 @@ sword$color <- ifelse((grepl("positive", sword$sentiment))==TRUE, "red",
 df5_1 <- df5 %>% separate(bigram, c("word1", "word2"), sep = " ")
 
 # 7-3. 단어 감성 반영 네트워크 시각화
-ng<-df5_1  %>%
+ng <- df5_1  %>%
   as_tbl_graph(directed=FALSE) %>%
   left_join(sword, by = "name") %>%
   mutate(eigen = centrality_eigen()) %>%
@@ -172,6 +173,7 @@ ng<-df5_1  %>%
   geom_node_text(aes(label=name), size=3, repel=TRUE) +
   theme_graph() +
   theme(legend.position='none')
+ng
 
 
 # 8. 토픽모형 방법 1
