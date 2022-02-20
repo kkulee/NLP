@@ -48,7 +48,7 @@ df3 <- df2 %>% count(word, sort=TRUE) %>%
   mutate(word=reorder(word, n)) %>%
   filter(n > 150)
 
-g <-ggplot(df3, aes(word,n)) +
+g <- ggplot(df3, aes(word,n)) +
   geom_col(fill='aquamarine3') +
   xlab(NULL) +
   theme_bw() +
@@ -56,7 +56,7 @@ g <-ggplot(df3, aes(word,n)) +
 g
 
 # 4-2. 워드크라우드 1
-wc1 <-df3 %>% wordcloud2()
+wc1 <- df3 %>% wordcloud2()
 wc1
 
 # 4-3. 워드크라우드 2
@@ -111,11 +111,11 @@ sentiment_messages <- df2 %>%
   filter(words >= 5)
 
 # 5-5. 긍정리뷰 순 정렬
-prewviews <-sentiment_messages %>%
+prewviews <- sentiment_messages %>%
   arrange(desc(sentiment)) # 내림차순 정렬
 
 # 5-6. 부정리뷰 순 정렬
-nrewviews <-sentiment_messages %>%
+nrewviews <- sentiment_messages %>%
   arrange(sentiment) # 오름차순 정렬
 
 # 5-7. 원본 리뷰 확인
@@ -144,7 +144,7 @@ df5 <- df4_3 %>% count(bigram, sort=TRUE) %>%
   mutate(bigram=reorder(bigram, n)) %>%
   filter(n>50)
 
-g <-ggplot(df5, aes(bigram, n)) +
+g <- ggplot(df5, aes(bigram, n)) +
   geom_col(fill='aquamarine3') +
   xlab(NULL) +
   theme_bw() +
